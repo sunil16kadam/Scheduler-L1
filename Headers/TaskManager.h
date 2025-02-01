@@ -21,7 +21,6 @@ public:
     void listTasks() const;
     std::vector<Task> getTasks();
 
-
 };
 
 #endif

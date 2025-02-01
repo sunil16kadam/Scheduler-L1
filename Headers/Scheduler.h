@@ -14,6 +14,7 @@ private:
 
 public:
     void setAlgorithm(const std::string& algo);
+    std::string& getAlgorithm() {return algorithm;}
     std::vector<Task> scheduleTasks(std::vector<Task>& tasks);
 };
 

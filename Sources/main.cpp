@@ -66,7 +66,7 @@ int main() {
             }
             case 4: { // Set Scheduling Algorithm
                 std::string algo;
-                std::cout << "Enter Scheduling Algorithm (SJF/Priority): ";
+                std::cout << "Enter Scheduling Algorithm (SJF/Priority/FCFS): ";
                 std::cin >> algo;
                 scheduler.setAlgorithm(algo);
                 break;
@@ -74,7 +74,7 @@ int main() {
             case 5: { // Execute Tasks
                 std::vector<Task> tasks = taskManager.getTasks();
                 tasks = scheduler.scheduleTasks(tasks);
-                engine.executeTasks(tasks);
+                engine.executeTasks(tasks, scheduler);
                 break;
             }
             case 6:

@@ -18,4 +18,3 @@ std::vector<Task> Scheduler::scheduleTasks(std::vector<Task>& tasks) {
     }
     return tasks;
 }
-
