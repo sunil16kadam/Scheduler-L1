@@ -1,43 +1,55 @@
-Mini-Project: Scheduler
+//***************************************************************************************
+// Mini-Project: Scheduler
+//***************************************************************************************
+
 1. Introduction
-This Scheduler is a lightweight task scheduling system that manages multiple tasks based on priority and execution time. 
-It is designed to demonstrate scheduling algorithms SJF and Priority and thread synchronization in C++.
+    This Scheduler is a lightweight task scheduling system that manages multiple tasks based on priority and execution time. 
+    It is designed to demonstrate scheduling algorithms FCFS, SJF and Priority and thread synchronization in C++.
 
 2. Functional Requirements
+
 2.1 Task Management
-The system should allow users to add, remove, and list tasks.
-Each task should have the following attributes:
-Task ID (unique identifier)
-Task Name (string)
-Execution Time (in milliseconds)
-Priority Level (Low, Medium, High)
-Periodicity (One-time or Repeating)
+    The system should allow users to add, remove, and list tasks.
+    Each task should have the following attributes:
+        Task ID (unique identifier)
+        Task Name (string)
+        Execution Time (in milliseconds)
+        Priority Level (Low, Medium, High)
+        Periodicity (One-time or Repeating)
+
 2.2 Scheduling Algorithms
-Implement the following scheduling strategies:
-First Come First Serve (FCFS) – Executes tasks in the order they are added.
-Shortest Job First (SJF) – Tasks with the shortest execution time are scheduled first.
-Priority Scheduling – Tasks with higher priority execute first.
-Round-Robin (Optional, for advanced implementation)
+    Implement the following scheduling strategies:
+    1) First Come First Serve (FCFS) – Executes tasks in the order they are added.
+    2) Shortest Job First (SJF) – Tasks with the shortest execution time are scheduled first.
+    3) Priority Scheduling – Tasks with higher priority execute first.
+    4) Round-Robin 
+
 2.3 Execution & Concurrency
-Use std::thread to execute tasks concurrently.
-Use std::mutex or std::unique_lock to handle synchronization.
-Support task preemption (optional).
+    Use std::thread to execute tasks concurrently.
+    Use std::mutex or std::unique_lock to handle synchronization.
+    Support task preemption (optional).
+
 3. Non-Functional Requirements
-Should be implemented using Modern C++ (C++17 or later).
-Use RAII principles for resource management.
-Ensure thread safety with proper locking mechanisms.
-Provide logs or console output for task execution tracking.
+    Should be implemented using Modern C++ (C++17 or later).
+    Use RAII principles for resource management.
+    Ensure thread safety with proper locking mechanisms.
+    Provide logs or console output for task execution tracking.
+
 4. Input & Output Requirements
+
 4.1 User Input
-Add a task (Task Name, Execution Time, Priority, Type).
-Choose the scheduling algorithm.
+    Add a task (Task Name, Execution Time, Priority, Type).
+    Choose the scheduling algorithm.
+    
 4.2 System Output
-Display the order of task execution.
-Show completed tasks with timestamps.
+    Display the order of task execution.
+    Show completed tasks with timestamps.
+
 5. Constraints
-The scheduler should support a maximum of 10 concurrent tasks.
-Task execution times should be realistic (50ms - 5000ms).
+    The scheduler should support a maximum of 10 concurrent tasks.
+    Task execution times should be realistic (50ms - 5000ms).
+
 6. Optional Enhancements
-GUI using Qt or ncurses for visualization.
-REST API for task management.
+    GUI using Qt or ncurses for visualization.
+    REST API for task management.
 

@@ -8,6 +8,7 @@
 //Main Program - Client program (main.cpp)
 //***************************************************************************************
 #include <iostream>
+#include <cctype>
 #include "../Headers/TaskManager.h"
 #include "../Headers/Scheduler.h"
 #include "../Headers/ExecutionEngine.h"
@@ -68,6 +69,7 @@ int main() {
                 std::string algo;
                 std::cout << "Enter Scheduling Algorithm (SJF/Priority/FCFS): ";
                 std::cin >> algo;
+                std::transform(algo.begin(), algo.end(), algo.begin(), ::toupper);
                 scheduler.setAlgorithm(algo);
                 break;
             }

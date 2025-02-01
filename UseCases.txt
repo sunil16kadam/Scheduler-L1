@@ -1,101 +1,120 @@
-Use Case Diagram
+//***************************************************************************************
+// Use Case Diagram
+//***************************************************************************************
+
 The scheduler has multiple interactions involving a User who manages tasks and selects scheduling strategies.
 
 Actors:
-User: Interacts with the scheduler by adding, removing, and executing tasks.
+    User: Interacts with the scheduler by adding, removing, and executing tasks.
+
 Use Cases:
-Add Task
-Remove Task
-List Tasks
-Select Scheduling Algorithm
-Execute Tasks
-View Task Execution Log
-Use Case Descriptions
-1. Add Task
-Actor: User
-Description: The user adds a task to the scheduler by specifying task details.
-Preconditions: The scheduler must be running.
-Postconditions: The task is stored in the task queue.
-Steps:
+    Add Task
+    Remove Task
+    List Tasks
+    Select Scheduling Algorithm
+    Execute Tasks
+    View Task Execution Log
 
-The system prompts the user for task details:
-Task Name
-Execution Time
-Priority Level
-Type (One-time/Repeating)
-The system assigns a unique Task ID.
-The system stores the task in the queue.
-The system confirms task addition to the user.
-Alternate Flow:
+//***************************************************************************************
+// Use Case Descriptions
+//***************************************************************************************
 
-If the maximum task limit (10) is reached, the system rejects new task additions.
-2. Remove Task
-Actor: User
-Description: The user removes a scheduled task.
-Preconditions: The task must exist in the queue.
-Postconditions: The task is removed from the queue.
-Steps:
+////////////////
+// 1. Add Task
+////////////////
 
-The system displays the list of scheduled tasks.
-The user selects a task to remove (by Task ID or Name).
-The system removes the task from the queue.
-The system confirms task removal.
-Alternate Flow:
+    Actor:          User
+    Description:    The user adds a task to the scheduler by specifying task details.
+    Preconditions:  The scheduler must be running.
+    Postconditions: The task is stored in the task queue.
+    Steps:
+        The system prompts the user for task details:
+            Task Name
+            Execution Time
+            Priority Level
+            Type (One-time/Repeating)
+        The system assigns a unique Task ID.
+        The system stores the task in the queue.
+        The system confirms task addition to the user.
+    Alternate Flow:
+        If the maximum task limit (10) is reached, the system rejects new task additions.
 
-If the selected task does not exist, an error message is displayed.
+///////////////////
+// 2. Remove Task
+///////////////////
+
+    Actor:          User
+    Description:    The user removes a scheduled task.
+    Preconditions:  The task must exist in the queue.
+    Postconditions: The task is removed from the queue.
+    Steps:
+        The system displays the list of scheduled tasks.
+        The user selects a task to remove (by Task ID or Name).
+        The system removes the task from the queue.
+        The system confirms task removal.
+    Alternate Flow:
+        If the selected task does not exist, an error message is displayed.
+
+//////////////
 3. List Tasks
-Actor: User
-Description: Displays the list of scheduled tasks.
-Preconditions: The system must have at least one task.
-Postconditions: The user sees all pending tasks.
-Steps:
+//////////////
 
-The system retrieves all scheduled tasks.
-The system displays them in tabular format with ID, Name, Execution Time, Priority, and Type.
-Alternate Flow:
+    Actor:          User
+    Description:    Displays the list of scheduled tasks.
+    Preconditions:  The system must have at least one task.
+    Postconditions: The user sees all pending tasks.
+    Steps:
+        The system retrieves all scheduled tasks.
+        The system displays them in tabular format with ID, Name, Execution Time, Priority, and Type.
+    Alternate Flow:
+        If no tasks exist, the system displays "No scheduled tasks."
 
-If no tasks exist, the system displays "No scheduled tasks."
+////////////////////////////////
 4. Select Scheduling Algorithm
-Actor: User
-Description: The user selects a scheduling algorithm.
-Preconditions: At least one task must be scheduled.
-Postconditions: The system updates the scheduler’s execution order.
-Steps:
+////////////////////////////////
 
-The system displays available scheduling algorithms:
-FCFS
-SJF
-Priority-Based
-The user selects an algorithm.
-The system updates the task execution order accordingly.
-Alternate Flow:
+    Actor:          User
+    Description:    The user selects a scheduling algorithm.
+    Preconditions:  At least one task must be scheduled.
+    Postconditions: The system updates the scheduler’s execution order.
+    Steps:
+        The system displays available scheduling algorithms:
+            FCFS
+            SJF
+            Priority-Based
+        The user selects an algorithm.
+        The system updates the task execution order accordingly.
+    Alternate Flow:
+        If an invalid choice is made, the system prompts for a valid selection.
 
-If an invalid choice is made, the system prompts for a valid selection.
+///////////////////
 5. Execute Tasks
-Actor: System
-Description: The scheduler executes tasks based on the selected algorithm.
-Preconditions: Tasks must be present in the queue.
-Postconditions: The tasks execute according to the scheduling order.
-Steps:
+///////////////////
 
-The system retrieves tasks in the selected order.
-The system starts executing tasks using std::thread.
-The system logs the execution of each task.
-The system notifies when all tasks are completed.
-Alternate Flow:
+    Actor:          System
+    Description:    The scheduler executes tasks based on the selected algorithm.
+    Preconditions:  Tasks must be present in the queue.
+    Postconditions: The tasks execute according to the scheduling order.
+    Steps:
+        The system retrieves tasks in the selected order.
+        The system starts executing tasks using std::thread.
+        The system logs the execution of each task.
+        The system notifies when all tasks are completed.
+    Alternate Flow:
+        If the queue is empty, the system shows "No tasks to execute."
 
-If the queue is empty, the system shows "No tasks to execute."
-6. View Task Execution Log
-Actor: User
-Description: Displays a log of executed tasks with timestamps.
-Preconditions: At least one task must have been executed.
-Postconditions: The execution history is displayed.
-Steps:
+/////////////////////////////////
+// 6. View Task Execution Log
+/////////////////////////////////
 
-The user requests the execution log.
-The system retrieves execution details.
-The system displays task execution timestamps and statuses.
-Alternate Flow:
-
-If no tasks have been executed, the system shows "No execution history available."
+    Actor:          User
+    Description:    Displays a log of executed tasks with timestamps.
+    Preconditions:  At least one task must have been executed.
+    Postconditions: The execution history is displayed.
+    Steps:
+        The user requests the execution log.
+        The system retrieves execution details.
+        The system displays task execution timestamps and statuses.
+    Alternate Flow:
+        If no tasks have been executed, the system shows "No execution history available."
 

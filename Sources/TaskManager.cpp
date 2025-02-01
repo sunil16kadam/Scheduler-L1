@@ -56,7 +56,7 @@ void TaskManager::removeTask(int taskId) {
 void TaskManager::listTasks() const {
     std::unique_lock<std::mutex> lock(mutexForTaskQueue);
     size_t sz = taskQueue.size(); // Store the initial size of the queue
-    std::cout << "size: " << sz << std::endl;
+    std::cout << "Number of tasks to run: " << sz << std::endl;
 
     if (taskQueue.empty()) {
         std::cout << "No tasks scheduled.\n";

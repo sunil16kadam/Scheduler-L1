@@ -1,0 +1,14 @@
+Executing tasks using Scheduling algorithm SJF
+
+Executing Task C (ID: 3 Exec duration: 500, Priority: 3
+
+Executing Task A (ID: 1 Exec duration: 1000, Priority: 2
+
+Executing Task B (ID: 2 Exec duration: 1500, Priority: 1
+
+Task Task C completed.
+
+Task Task A completed.
+
+Task Task B completed.
+
