@@ -13,7 +13,6 @@ Use Cases:
     List Tasks
     Select Scheduling Algorithm
     Execute Tasks
-    View Task Execution Log
 
 //***************************************************************************************
 // Use Case Descriptions
@@ -104,7 +103,7 @@ Use Cases:
         If the queue is empty, the system shows "No tasks to execute."
 
 /////////////////////////////////
-// 6. View Task Execution Log
+// 6. View Task Execution Log [Not implemented]
 /////////////////////////////////
 
     Actor:          User

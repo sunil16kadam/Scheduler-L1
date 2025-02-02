@@ -1,3 +1,41 @@
 //***************************************************************************************
-// 
+// Design for Scheduler
 //***************************************************************************************
+
+Few Highlights are:
+
+Constructor of Logger opens the log file in append mode.
+The log file remains open throughout execution. It closes only once when the program exits.
+This improves Performance, as there's no unnecessary file opening/closing.
+Destructor of Logger closes the file when the Logger object is destroyed.
+
+threads.emplace_back(&Task::execute, &task); 
+    - Creates a new std::thread object that starts executing Task::execute on the given task instance.
+    - This new std::thread object is then added to the threads vector.
+    - Each thread begins executing the Task::execute method as soon as it is created.Arguments:
+    - &Task::execute: A pointer to the member function execute() of Task.
+      &task: The object on which execute() is called.
+    - Key Benefit: emplace_back() constructs the thread in place, avoiding unnecessary copying or temporary objects.
+      It more efficient than push_back().
+
+RAII (Resource Acquisition Is Initialization) 
+- It is a fundamental C++ principle used for safe and automatic resource management. 
+- It ensures that resources (like file handles, memory, or mutex locks) are acquired in the constructor 
+  and released in the destructor, preventing resource leaks.
+
+RAII for File Management (std::ofstream)
+    Resource Acquisition:
+        The std::ofstream log file is opened in the constructor.
+    Resource Release:
+        The log file is closed automatically in the destructor.
+    Benefits:
+    - Prevents file leaks: If the program crashes or exits unexpectedly, the file will still be closed.
+    - Automatic cleanup: The destructor ensures file closure even if the logger object is destroyed unexpectedly.
+
+RAII for Mutex Locking (std::lock_guard<std::mutex>)
+    std::lock_guard<std::mutex> is used inside log() to automatically acquire and release the lock.
+    It ensures that the mutex is released even if an exception occurs, preventing deadlocks.
+    Benefits:
+    - Automatic Lock Management: No need to manually unlock the mutex.
+    - Exception Safety: Even if an exception occurs, the mutex automatically unlocks, preventing deadlocks.
+

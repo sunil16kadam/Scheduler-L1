@@ -30,12 +30,14 @@ void ExecutionEngine::executeTasks(std::vector<Task>& tasks, Scheduler& schedule
 }
 /*
 How It Works:
-threads.emplace_back(&Task::execute, &task); creates a new thread and adds it directly to the threads vector.
-Arguments:
-&Task::execute: A pointer to the member function execute() of Task.
-&task: The object on which execute() is called.
-emplace_back() constructs the thread in place, avoiding unnecessary copying or temporary objects.
-Key Benefit: emplace_back() directly constructs threads inside the vector, making it more efficient than push_back().
+threads.emplace_back(&Task::execute, &task); 
+    - Creates a new std::thread object that starts executing Task::execute on the given task instance.
+    - This new std::thread object is then added to the threads vector.
+    - Each thread begins executing the Task::execute method as soon as it is created.Arguments:
+    - &Task::execute: A pointer to the member function execute() of Task.
+      &task: The object on which execute() is called.
+    - Key Benefit: emplace_back() constructs the thread in place, avoiding unnecessary copying or temporary objects.
+      It more efficient than push_back().
 */
 
 

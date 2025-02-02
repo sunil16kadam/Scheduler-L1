@@ -26,3 +26,4 @@ Executing tasks using Scheduling algorithm FCFS
 	Task Task C completed.
 	Task Task A completed.
 	Task Task B completed.
+Scheduler shutting down...
