@@ -13,13 +13,18 @@
 #include "../Headers/Scheduler.h"
 #include "../Headers/ExecutionEngine.h"
 #include "../Headers/UserInterface.h"
+#include "../Headers/Logger.h"
 
 int main() {
+    Logger logger("executionLog.txt");  // Create a single logger instance
+
     TaskManager taskManager;
     Scheduler scheduler;
-    ExecutionEngine engine;
+    ExecutionEngine engine(logger);
     UserInterface ui;
     int choice;
+
+    logger.log("Scheduler started");
 
     do {
         ui.showMenu();
@@ -46,9 +51,9 @@ int main() {
                 // Task task(id, name, execTime, priority, repeating);
 
                 // Hardcoded tasks (id, name, execTime, priority, repeating)
-                Task Task1(1, "Task A", 1000, 2, false);
-                Task Task2(2, "Task B", 1500, 1, true);
-                Task Task3(3, "Task C", 500, 3, false);
+                Task Task1(1, "Task A", 1000, 2, false, &logger);
+                Task Task2(2, "Task B", 1500, 1, true, &logger);
+                Task Task3(3, "Task C", 500, 3, false, &logger);
                 taskManager.addTask(Task1);
                 taskManager.addTask(Task2);
                 taskManager.addTask(Task3);
@@ -86,6 +91,9 @@ int main() {
                 std::cout << "Invalid choice. Try again.\n";
         }
     } while (choice != 6);
+
+    // Rest of the program...
+    logger.log("Scheduler shutting down...");
 
     return 0;
 }

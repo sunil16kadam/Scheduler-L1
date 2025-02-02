@@ -4,8 +4,8 @@
 #include "../Headers/Task.h"
 #include "../Headers/Logger.h"
 
-Task::Task(int id, std::string name, int execTime, int priority, bool isRepeating)
-    : id(id), name(name), executionTime(execTime), priority(priority), isRepeating(isRepeating) {}
+Task::Task(int id, std::string name, int execTime, int priority, bool isRepeating, Logger* pLogger)
+    : id(id), name(name), executionTime(execTime), priority(priority), isRepeating(isRepeating), pLogger(pLogger) {}
 
 void Task::execute() const {
 
@@ -15,7 +15,7 @@ void Task::execute() const {
     std::string logMessage = oss.str();
     oss.str("");  // Clear the string content
     oss.clear();  // Reset error state if any
-    Logger::log(logMessage);
+    pLogger->log(logMessage);  // spk
 
     std::this_thread::sleep_for(std::chrono::milliseconds(executionTime));
 
@@ -23,7 +23,7 @@ void Task::execute() const {
     logMessage = oss.str();
     oss.str("");  // Clear the string content
     oss.clear();  // Reset error state if any
-    Logger::log(logMessage);
+    pLogger->log(logMessage);  // spk
 }
 
 int Task::getId() const { return id; }
