@@ -1,43 +1,28 @@
 Scheduler started
-Executing tasks using Scheduling algorithm FCFS
-
-Executing Task A (ID: 1 Exec duration: 1000, Priority: 2
-
-Executing Task C (ID: 3 Exec duration: 500, Priority: 3
-
-Executing Task B (ID: 2 Exec duration: 1500, Priority: 1
-
-Task Task C completed.
-
-Task Task A completed.
-
-Task Task B completed.
-
-Executing tasks using Scheduling algorithm SJF
-
-Executing Task C (ID: 3 Exec duration: 500, Priority: 3
-
-Executing Task A (ID: 1 Exec duration: 1000, Priority: 2
-
-Executing Task B (ID: 2 Exec duration: 1500, Priority: 1
-
-Task Task C completed.
-
-Task Task A completed.
-
-Task Task B completed.
 
 Executing tasks using Scheduling algorithm FCFS
 
-Executing Task A (ID: 1 Exec duration: 1000, Priority: 2
+	Executing Task A (ID: 1 Exec duration: 1000, Priority: 2
+	Executing Task B (ID: 2 Exec duration: 1500, Priority: 1
+	Executing Task C (ID: 3 Exec duration: 500, Priority: 3
+	Task Task C completed.
+	Task Task A completed.
+	Task Task B completed.
 
-Executing Task B (ID: 2 Exec duration: 1500, Priority: 1
+Executing tasks using Scheduling algorithm FCFS
 
-Executing Task C (ID: 3 Exec duration: 500, Priority: 3
+	Executing Task B (ID: 2 Exec duration: 1500, Priority: 1
+	Executing Task A (ID: 1 Exec duration: 1000, Priority: 2
+	Executing Task C (ID: 3 Exec duration: 500, Priority: 3
+	Task Task C completed.
+	Task Task A completed.
+	Task Task B completed.
 
-Task Task C completed.
+Executing tasks using Scheduling algorithm FCFS
 
-Task Task A completed.
-
-Task Task B completed.
-
+	Executing Task A (ID: 1 Exec duration: 1000, Priority: 2
+	Executing Task C (ID: 3 Exec duration: 500, Priority: 3
+	Executing Task B (ID: 2 Exec duration: 1500, Priority: 1
+	Task Task C completed.
+	Task Task A completed.
+	Task Task B completed.

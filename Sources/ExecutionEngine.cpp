@@ -13,8 +13,8 @@ void ExecutionEngine::executeTasks(std::vector<Task>& tasks, Scheduler& schedule
     }
 
     std::string algo = scheduler.getAlgorithm();
-    std::string logMessage = "Executing tasks using Scheduling algorithm " + algo + "\n"; 
-    logger.log(logMessage); // spk
+    std::string logMessage = "\nExecuting tasks using Scheduling algorithm " + algo + "\n"; 
+    logger.log(logMessage); 
 
     std::vector<std::thread> threads;  // Store threads for concurrent execution
 

@@ -10,8 +10,8 @@ Task::Task(int id, std::string name, int execTime, int priority, bool isRepeatin
 void Task::execute() const {
 
     std::ostringstream oss;
-    oss << "Executing " << name << " (ID: " << std::to_string(id)  << " Exec duration: " << 
-    std::to_string(executionTime) << ", Priority: " << std::to_string(priority) << std::endl;
+    oss << "\tExecuting " << name << " (ID: " << std::to_string(id) << " Exec duration: " << 
+    std::to_string(executionTime) << ", Priority: " << std::to_string(priority);
     std::string logMessage = oss.str();
     oss.str("");  // Clear the string content
     oss.clear();  // Reset error state if any
@@ -19,11 +19,11 @@ void Task::execute() const {
 
     std::this_thread::sleep_for(std::chrono::milliseconds(executionTime));
 
-    oss << "Task " << name << " completed." << std::endl;
+    oss << "\tTask " << name << " completed.";
     logMessage = oss.str();
     oss.str("");  // Clear the string content
     oss.clear();  // Reset error state if any
-    pLogger->log(logMessage);  // spk
+    pLogger->log(logMessage); 
 }
 
 int Task::getId() const { return id; }
